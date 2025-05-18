@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.home');
-});
+})->name('home');
 
 
-Route::get('/about', fn() => view('pages.about'));
+Route::get('/about', fn() => view('pages.about'))->name('about');
 Route::get('/contact', fn() => view('pages.contact'));
 Route::get('/blog', fn() => view('pages.blog'));
 Route::get('/shop', fn() => view('pages.shop'));
