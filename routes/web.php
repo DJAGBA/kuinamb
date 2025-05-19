@@ -1,6 +1,44 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+require __DIR__.'/auth.php';
+
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return 'Bienvenue Admin';
+    });
+});
+
+Route::middleware(['auth', 'vendeur'])->group(function () {
+    Route::get('/vendeur/dashboard', function () {
+        return 'Bienvenue Vendeur';
+    });
+});
+
+Route::middleware(['auth', 'client'])->group(function () {
+    Route::get('/client/dashboard', function () {
+        return 'Bienvenue Client';
+    });
+});
+
+
+
 
 Route::get('/', function () {
     return view('pages.home');

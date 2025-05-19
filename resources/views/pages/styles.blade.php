@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Début de la page Styles -->
-<section class="styles-section py-5">
+{{-- <section class="styles-section py-5">
     <div class="container">
         <h2 class="text-center mb-4">Explorez nos Styles</h2>
 
@@ -179,7 +179,7 @@
           </div>
         </nav>
       </div>
-    </header>
+    </header> --}}
 
     <div class="site-banner">
       <div class="banner-content">
@@ -591,7 +591,7 @@
       <hr>
     </section>
 
-    <footer id="footer">
+    {{-- <footer id="footer">
       <div class="container">
         <div class="footer-menu-list">
           <div class="row d-flex flex-wrap justify-content-between">
@@ -708,7 +708,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/plugins.js"></script>

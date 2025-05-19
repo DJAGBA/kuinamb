@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Début de la page Merci -->
-<section class="thankyou-section py-5">
+{{-- <section class="thankyou-section py-5">
     <div class="container text-center">
         <h2>Merci pour votre commande !</h2>
         <p>Un email de confirmation vous a été envoyé.</p>
@@ -164,7 +164,7 @@
           </div>
         </nav>
       </div>
-    </header>
+    </header> --}}
 
     <section id="thank-you" class="padding-large bg-light-grey">
       <div class="container">
@@ -330,7 +330,7 @@
       <hr>
     </section>
 
-    <footer id="footer">
+    {{-- <footer id="footer">
       <div class="container">
         <div class="footer-menu-list">
           <div class="row d-flex flex-wrap justify-content-between">
@@ -447,7 +447,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/plugins.js"></script>

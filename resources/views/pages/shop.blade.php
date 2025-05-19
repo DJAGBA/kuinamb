@@ -4,7 +4,7 @@
 
 @section('content')
 
-<!-- Début de la page Boutique -->
+{{-- <!-- Début de la page Boutique -->
 <section class="shop-section py-5">
     <div class="container">
         <h2 class="text-center mb-4">Nos Produits</h2>
@@ -24,8 +24,8 @@
             <!-- Répète cette structure pour d'autres produits -->
         </div>
     </div>
-</section>
- <div class="preloader-wrapper">
+</section> --}}
+ {{-- <div class="preloader-wrapper">
       <div class="preloader">
       </div>
     </div>
@@ -177,7 +177,7 @@
           </div>
         </nav>
       </div>
-    </header>
+    </header> --}}
 
     <section class="site-banner jarallax min-height300 padding-large" style="background: url(images/hero-image.jpg) no-repeat; background-position: top;">
       <div class="container">
@@ -1408,7 +1408,7 @@
       <hr>
     </section>
 
-    <footer id="footer">
+    {{-- <footer id="footer">
       <div class="container">
         <div class="footer-menu-list">
           <div class="row d-flex flex-wrap justify-content-between">
@@ -1525,7 +1525,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/plugins.js"></script>

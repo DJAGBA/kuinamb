@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Début de la page Blog -->
-<section class="blog-section py-5">
+{{-- <section class="blog-section py-5">
     <div class="container">
         <h2 class="text-center mb-4">Notre Blog</h2>
 
@@ -24,8 +24,8 @@
                     <p>Un aperçu de notre dernière tendance mode...</p>
                     <a href="#" class="btn btn-outline-primary btn-sm">Lire plus</a>
                 </article>
-            </div>
-
+            </div> --}}
+{{--
             <div class="col-md-4">
                 <article class="blog-post">
                     <h5 class="mb-2">Titre de l'article 3</h5>
@@ -188,7 +188,7 @@
           </div>
         </nav>
       </div>
-    </header>
+    </header> --}}
 
     <section class="site-banner jarallax min-height300 padding-large" style="background: url(images/hero-image1.jpg) no-repeat; background-position: top;">
       <div class="container">
@@ -498,7 +498,7 @@
       <hr>
     </section>
 
-    <footer id="footer">
+    {{-- <footer id="footer">
       <div class="container">
         <div class="footer-menu-list">
           <div class="row d-flex flex-wrap justify-content-between">
@@ -615,7 +615,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/plugins.js"></script>

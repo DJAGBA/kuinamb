@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Début de la page Article de blog -->
-<section class="single-post-section py-5">
+{{-- <section class="single-post-section py-5">
     <div class="container">
         <h2 class="mb-3">Titre de l'article de blog</h2>
         <p class="text-muted">Publié le 15 mai 2025 par Admin</p>
@@ -175,7 +175,7 @@
           </div>
         </nav>
       </div>
-    </header>
+    </header> --}}
 
     <section class="site-banner padding-small bg-light-grey">
       <div class="container">
@@ -519,7 +519,7 @@
       <hr>
     </section>
 
-    <footer id="footer">
+    {{-- <footer id="footer">
       <div class="container">
         <div class="footer-menu-list">
           <div class="row d-flex flex-wrap justify-content-between">
@@ -636,7 +636,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/plugins.js"></script>

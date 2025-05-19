@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Début de la page Contact -->
-<section class="contact-section py-5">
+{{-- <section class="contact-section py-5">
     <div class="container">
         <h2 class="text-center mb-4">Nous contacter</h2>
 
@@ -178,7 +178,7 @@
           </div>
         </nav>
       </div>
-    </header>
+    </header> --}}
 
     <section class="site-banner jarallax padding-large" style="background: url(images/hero-image.jpg) no-repeat; background-position: top;">
       <div class="container">
@@ -381,7 +381,7 @@
       <hr>
     </section>
 
-    <footer id="footer">
+    {{-- <footer id="footer">
       <div class="container">
         <div class="footer-menu-list">
           <div class="row d-flex flex-wrap justify-content-between">
@@ -498,7 +498,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/plugins.js"></script>
