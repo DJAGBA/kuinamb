@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Shop extends Model
 {
     /** @use HasFactory<\Database\Factories\ShopFactory> */
+<<<<<<< HEAD
     protected $fillable = ['user_id', 'name', 'slug', 'logo',
 'description'];
  public function user()
@@ -28,3 +29,7 @@ class Shop extends Model
  }
 }
 
+=======
+    use HasFactory;
+}
+>>>>>>> dda8ac4ee198f86dc43f57f9fa57777b11523c12
