@@ -45,8 +45,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
-  public function isAdmin() {
+public function isAdmin() {
     return $this->role === 'admin';
 }
 
@@ -56,6 +55,11 @@ public function isVendeur() {
 
 public function isClient() {
     return $this->role === 'client';
+}
+
+public function canAccessFilament(): bool
+{
+    return true;
 }
 
 }
