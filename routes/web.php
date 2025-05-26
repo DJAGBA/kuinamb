@@ -19,23 +19,29 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return 'Bienvenue Admin';
-    });
-});
+// Route::middleware(['auth', 'admin'])->group(function () {
+//     Route::get('/admin/dashboard', function () {
+//         return 'Bienvenue Admin';
+//     });
+// });
 
 Route::middleware(['auth', 'vendeur'])->group(function () {
     Route::get('/vendeur/dashboard', function () {
-        return 'Bienvenue Vendeur';
-    });
+        return view('dashboard.vendeur');
+    })->name('vendeur.dashboard');
 });
 
+// Route::middleware(['auth', 'client'])->group(function () {
+//     Route::get('/client/dashboard', function () {
+//         return 'Bienvenue Client';
+//     });
+// });
 Route::middleware(['auth', 'client'])->group(function () {
     Route::get('/client/dashboard', function () {
-        return 'Bienvenue Client';
-    });
+        return view('dashboard.client');
+    })->name('client.dashboard');
 });
+
 
 
 
