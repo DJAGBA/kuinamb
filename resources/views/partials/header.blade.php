@@ -53,7 +53,8 @@
           <div class="col-lg-2 col-md-2">
             <div class="main-logo">
               <a href="{{ route('home') }}">
-                <img src="{{ asset('images/main-logo.png') }}" alt="logo">
+             <img src="{{ asset('images/vero.jpeg') }}" alt="logo" style="width: 100px; height: auto;">
+
               </a>
             </div>
           </div>
