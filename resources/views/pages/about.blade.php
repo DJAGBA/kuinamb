@@ -10,7 +10,7 @@
             <h1 class="page-title">About us</h1>
             <div class="breadcrumbs">
               <span class="item">
-                <a href="index.html">Home /</a>
+                <a href="{{ route('home') }}">Home /</a>
               </span>
               <span class="item">About</span>
             </div>
@@ -69,12 +69,12 @@
           <div class="col-lg-6 col-md-12">
             <div class="detail">
               <div class="display-header">
-                <h2 class="section-title">How was Ultras Store started?</h2>
+                <h2 class="section-title">How was e-shop Store started?</h2>
                 <p>Risus augue curabitur diam senectus congue velit et. Sed vitae metus nibh sit era. Nulla adipiscing pharetra pellentesque maecenas odio eros at. Et libero vulputate amet duis erat volutpat vitae eget. Sed vitae metus nibh sit era. Nulla adipiscing pharetra pellentesque maecenas odio eros at.
                 <br>
                 Sed vitae metus nibh sit era. Nulla adipiscing pharetra pellentesque maecenas odio eros at. Et libero vulputate amet duis erat volutpat vitae eget. Quam libero etiam et in ac at quis. Risus augue curabitur diam senectus congue velit et. </p>
                 <div class="btn-wrap">
-                  <a href="shop.html" class="btn btn-dark btn-medium d-flex align-items-center" tabindex="0">Shop our store<i class="icon icon-arrow-io"></i>
+                  <a href="{{ route('shop') }}" class="btn btn-dark btn-medium d-flex align-items-center" tabindex="0">Shop our store<i class="icon icon-arrow-io"></i>
                   </a>
                 </div>
               </div>
@@ -134,7 +134,7 @@
         <div class="section-header d-flex flex-wrap align-items-center justify-content-between">
           <h2 class="section-title">our Journal</h2>
           <div class="btn-wrap align-right">
-            <a href="blog.html" class="d-flex align-items-center">Read All Articles <i class="icon icon icon-arrow-io"></i>
+            <a href="{{ route('blog') }}" class="d-flex align-items-center">Read All Articles <i class="icon icon icon-arrow-io"></i>
             </a>
           </div>
         </div>
@@ -152,9 +152,9 @@
               </div>
               <div class="post-header">
                 <h3 class="post-title">
-                  <a href="single-post.html">top 10 casual look ideas to dress up your kids</a>
+                  <a href="{{ route('shop') }}">top 10 casual look ideas to dress up your kids</a>
                 </h3>
-                <a href="blog.html" class="blog-categories">Fashion</a>
+                <a href="{{ route('blog') }}" class="blog-categories">Fashion</a>
               </div>
             </div>
           </article>
@@ -171,9 +171,9 @@
               </div>
               <div class="post-header">
                 <h3 class="post-title">
-                  <a href="single-post.html">Latest trends of wearing street wears supremely</a>
+                  <a href="{{ route('shop') }}">Latest trends of wearing street wears supremely</a>
                 </h3>
-                <a href="blog.html" class="blog-categories">Trending</a>
+                <a href="{{ route('blog') }}" class="blog-categories">Trending</a>
               </div>
             </div>
           </article>
@@ -190,9 +190,9 @@
               </div>
               <div class="post-header">
                 <h3 class="post-title">
-                  <a href="single-post.html">types of comfortable clothes ideas for women</a>
+                  <a href="{{ route('shop') }}">types of comfortable clothes ideas for women</a>
                 </h3>
-                <a href="blog.html" class="blog-categories">Inspiration</a>
+                <a href="{{ route('blog') }}" class="blog-categories">Inspiration</a>
               </div>
             </div>
           </article>
@@ -217,7 +217,7 @@
         <div class="section-header">
           <h2 class="section-title">Follow our instagram</h2>
         </div>
-        <p>Our official Instagram account <a href="#">@ultras</a> or <a href="#">#ultras_clothing</a>
+        <p>Our official Instagram account <a href="#">@e-shop</a> or <a href="#"></a>
         </p>
         <div class="row d-flex flex-wrap justify-content-between">
           <div class="col-lg-2 col-md-4 col-sm-6">

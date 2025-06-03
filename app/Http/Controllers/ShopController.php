@@ -3,106 +3,72 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shop;
-use App\Http\Requests\StoreShopRequest;
-use App\Http\Requests\UpdateShopRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; // ✅ Ajout de Auth
 
 class ShopController extends Controller
 {
-<<<<<<< HEAD
-    public function index()
- {
- $shops = Shop::with('user')->paginate(10);
- return view('shops.index', compact('shops'));
- }
- public function create()
- {
- return view('shops.create');
- }
- public function store(Request $request)
- {
- $validated = $request->validate([
- 'name' => 'required',
- 'slug' => 'required|unique:shops',
- ]);
- $shop = Shop::create(array_merge($validated, ['user_id' => auth()->id()]));
- return redirect()->route('shops.index')->with('success', 'Shop created.');
- }
- public function show(Shop $shop)
- {
- return view('shops.show', compact('shop'));
- }
- public function edit(Shop $shop)
- {
- return view('shops.edit', compact('shop'));
- }
- public function update(Request $request, Shop $shop)
- {
- $validated = $request->validate(['name' => 'required']);
- $shop->update($validated);
- return redirect()->route('shops.index')->with('success', 'Shop
-updated.');
- }
- public function destroy(Shop $shop)
- {
- $shop->delete();
- return redirect()->route('shops.index')->with('success', 'Shop
-deleted.');
- }
-=======
-    /**
-     * Display a listing of the resource.
-     */
+    // 📌 Affichage de la boutique du vendeur
     public function index()
     {
-        //
+        $shops = Shop::where('user_id', auth()->id())->get();
+        return view('vendor.shop', compact('shops')); // ✅ Correction du nom de la vue
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // 🏪 Création d'une nouvelle boutique
     public function create()
     {
-        //
+        return view('vendor.shop.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreShopRequest $request)
-    {
-        //
-    }
+    // ✅ Correction : Ajout de Request dans store()
+   public function store(Request $request)
+{
+    // dd($request->all());  <-- à supprimer
 
-    /**
-     * Display the specified resource.
-     */
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'slug' => 'required|unique:shops|max:255',
+    ]);
+
+    Shop::create([
+        'name' => $validated['name'],
+        'slug' => $validated['slug'],
+        'user_id' => Auth::id(),
+    ]);
+
+    return redirect()->route('vendor.shop')->with('success', 'Boutique créée avec succès.');
+}
+
+    // 📌 Voir une boutique spécifique
     public function show(Shop $shop)
     {
-        //
+          dd($shop);
+        return view('vendor.shop.show', compact('shop')); // ✅ Correction du nom de la vue
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // 🛠 Modifier la boutique
     public function edit(Shop $shop)
     {
-        //
+        return view('vendor.shop.edit', compact('shop'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateShopRequest $request, Shop $shop)
+    // ✅ Correction : Ajout de Request dans update()
+    public function update(Request $request, Shop $shop)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $shop->update($validated);
+
+        return redirect()->route('vendor.shop')->with('success', 'Boutique mise à jour.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    // 🚨 Suppression d'une boutique
     public function destroy(Shop $shop)
     {
-        //
+        $shop->delete();
+        return redirect()->route('vendor.shop')->with('success', 'Boutique supprimée.');
     }
->>>>>>> dda8ac4ee198f86dc43f57f9fa57777b11523c12
 }

@@ -2,45 +2,67 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart_items;
-use App\Http\Requests\StoreCart_itemsRequest;
-use App\Http\Requests\UpdateCart_itemsRequest;
+use Illuminate\Http\Request;
+use App\Models\Product;
 
 class CartItemsController extends Controller
 {
-    public function index()
-    {
-        $items = CartItem::with('cart', 'product')->paginate(10);
-        return view('cart_items.index', compact('items'));
-    }
-
+    // Ajouter un produit au panier (stocké en session)
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'cart_id' => 'required|exists:carts,id',
+        // Validation des données reçues
+        $request->validate([
             'product_id' => 'required|exists:products,id',
-            'quantity' => 'required|integer|min:1'
+            'quantity' => 'required|integer|min:1',
         ]);
 
-        CartItem::create($validated);
+        // Récupérer le panier actuel depuis la session (ou tableau vide)
+        $cart = session()->get('cart', []);
 
-        return redirect()->back()->with('success', 'Item added to cart.');
+        $productId = $request->product_id;
+        $quantity = $request->quantity;
+
+        // Vérifier si le produit est déjà dans le panier
+        if (isset($cart[$productId])) {
+            // Incrémenter la quantité
+            $cart[$productId]['quantity'] += $quantity;
+        } else {
+            // Récupérer les infos du produit depuis la base
+            $product = Product::find($productId);
+
+            // Ajouter le produit au panier
+            $cart[$productId] = [
+                'name' => $product->name,
+                'quantity' => $quantity,
+                'price' => $product->price,
+                'image' => $product->image,  // optionnel, si tu as une image
+            ];
+        }
+
+        // Sauvegarder le panier dans la session
+        session()->put('cart', $cart);
+
+        // Retourner à la page précédente avec un message succès
+        return redirect()->back()->with('success', 'Produit ajouté au panier.');
     }
 
-    public function update(Request $request, CartItem $cartItem)
+    // Méthode pour afficher la page panier (optionnel)
+    public function index()
     {
-        $validated = $request->validate([
-            'quantity' => 'required|integer|min:1'
-        ]);
-
-        $cartItem->update($validated);
-
-        return redirect()->back()->with('success', 'Cart item updated.');
+        $cart = session()->get('cart', []);
+        return view('cart.index', compact('cart'));
     }
 
-    public function destroy(CartItem $cartItem)
+    // Méthode pour supprimer un produit du panier (optionnel)
+    public function destroy($productId)
     {
-        $cartItem->delete();
-        return redirect()->back()->with('success', 'Item removed from cart.');
+        $cart = session()->get('cart', []);
+
+        if(isset($cart[$productId])) {
+            unset($cart[$productId]);
+            session()->put('cart', $cart);
+        }
+
+        return redirect()->back()->with('success', 'Produit supprimé du panier.');
     }
 }

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>@yield('title', 'Ultras - Clothing Store eCommerce Store')</title>
+    <title>@yield('title', 'e-shop')</title>
 
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
@@ -45,5 +46,37 @@
 <script src="{{ asset('js/ultdfras.js') }}"></script>
 
     {{-- @stack('scripts') --}}
+   <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".cart-link").forEach(button => {
+            button.addEventListener("click", async function () {
+                let productId = this.getAttribute("data-product-id");
+
+                try {
+                    let response = await fetch("{{ route('addToCart') }}", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+                        },
+                        body: JSON.stringify({ product_id: productId })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error("Erreur serveur : " + response.status);
+                    }
+
+                    let data = await response.json();
+                    alert(data.message);
+                } catch (error) {
+                    console.error("Erreur AJAX :", error);
+                    alert("❌ Une erreur est survenue. Vérifie la console.");
+                }
+            });
+        });
+    });
+</script>
+
+
 </body>
 </html>

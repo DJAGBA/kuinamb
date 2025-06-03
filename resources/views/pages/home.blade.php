@@ -1,3 +1,9 @@
+@php
+    use App\Models\Product;
+    $products = Product::all();
+@endphp
+
+
 @extends('layouts.app')
 @section('content')
 
@@ -17,9 +23,9 @@
                 <div class="row">
                   <div class="col-md-6">
                     <h2 class="banner-title">Summer Collection</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac.</p>
+                    <p>Une collection pour Tous pour et pour chaque budgets pour des styles contractés.</p>
                     <div class="btn-wrap">
-                      <a href="shop.html" class="btn btn-light btn-medium d-flex align-items-center" tabindex="0">Shop it now <i class="icon icon-arrow-io"></i>
+                      <a href="{{ route('shop') }}" class="btn btn-light btn-medium d-flex align-items-center" tabindex="0">Shop it now <i class="icon icon-arrow-io"></i>
                       </a>
                     </div>
                   </div>
@@ -35,7 +41,7 @@
                     <h2 class="banner-title">Casual Collection</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero ipsum enim pharetra hac.</p>
                     <div class="btn-wrap">
-                      <a href="shop.html" class="btn btn-light btn-light-arrow btn-medium d-flex align-items-center" tabindex="0">Shop it now <i class="icon icon-arrow-io"></i>
+                      <a href="{{ route('shop') }}" class="btn btn-light btn-light-arrow btn-medium d-flex align-items-center" tabindex="0">Shop it now <i class="icon icon-arrow-io"></i>
                       </a>
                     </div>
                   </div>
@@ -47,13 +53,13 @@
       </div>
     </section>
 
-    <section id="featured-products" class="product-store padding-large">
+      <section id="featured-products" class="product-store padding-large">
       <div class="container">
         <div class="section-header d-flex flex-wrap align-items-center justify-content-between">
-          <h2 class="section-title">Featured Products</h2>            
+          <h2 class="section-title">Featured Products</h2>
           <div class="btn-wrap">
-            <a href="shop.html" class="d-flex align-items-center">View all products <i class="icon icon icon-arrow-io"></i></a>
-          </div>            
+            <a href="{{ route('shop') }}" class="d-flex align-items-center">View all products <i class="icon icon icon-arrow-io"></i></a>
+          </div>
         </div>
         <div class="swiper product-swiper overflow-hidden">
           <div class="swiper-wrapper">
@@ -64,9 +70,16 @@
                 </div>
                 <div class="cart-concern">
                   <div class="cart-button d-flex justify-content-between align-items-center">
-                    <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i>
-                    </button>
-                    <button type="button" class="view-btn tooltip
+               @foreach ($products as $product)
+    <button type="button" class="btn-wrap cart-link d-flex align-items-center"
+            data-product-id="{{ $product->id }}">
+        Ajouter au panier
+        <i class="icon icon-arrow-io"></i>
+    </button>
+@endforeach
+
+
+<button type="button" class="view-btn tooltip
                         d-flex">
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
@@ -91,14 +104,17 @@
                 </div>
                 <div class="cart-concern">
                   <div class="cart-button d-flex justify-content-between align-items-center">
-                    <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i>
-                    </button>
+
+                      
+                        <button type="button" class="btn-wrap cart-link d-flex align-items-center">add to cart <i class="icon icon-arrow-io"></i>
+                        </button>
+
                     <button type="button" class="view-btn tooltip
                         d-flex">
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                     <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
                     </button>
                   </div>
@@ -125,7 +141,7 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                     <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
                     </button>
                   </div>
@@ -152,7 +168,7 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                     <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
                     </button>
                   </div>
@@ -165,7 +181,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>fi
         </div>
         <div class="swiper-pagination"></div>
       </div>
@@ -184,7 +200,7 @@
                 <h3 class="item-title">street wear.</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.</p>
                 <div class="btn-wrap">
-                  <a href="shop.html" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
+                  <a href="{{ route('shop') }}" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
                   </a>
                 </div>
               </div>
@@ -199,7 +215,7 @@
                 <div class="categories">Basic Collection</div>
                 <h3 class="item-title">Basic shoes.</h3>
                 <div class="btn-wrap">
-                  <a href="shop.html" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
+                  <a href="{{ route('shop') }}" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
                   </a>
                 </div>
               </div>
@@ -212,7 +228,7 @@
                 <div class="categories">Best Selling Product</div>
                 <h3 class="item-title">woolen hat.</h3>
                 <div class="btn-wrap">
-                  <a href="shop.html" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
+                  <a href="{{ route('shop') }}" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
                   </a>
                 </div>
               </div>
@@ -231,12 +247,12 @@
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dictumst amet, metus, sit massa posuere maecenas. At tellus ut nunc amet vel egestas.</p>
           </div>
-          <div class="subscribe-content col-md-6">
+          {{-- <div class="subscribe-content col-md-6">
             <form id="form" class="d-flex justify-content-between">
               <input type="text" name="email" placeholder="Enter your email addresss here">
               <button class="btn btn-dark">Subscribe Now</button>
             </form>
-          </div>
+          </div> --}}
         </div>
       </div>
     </section>
@@ -272,9 +288,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -297,9 +313,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -322,9 +338,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -347,9 +363,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -372,9 +388,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -397,9 +413,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -422,9 +438,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -447,9 +463,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -472,9 +488,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -497,9 +513,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -522,9 +538,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -547,9 +563,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -576,9 +592,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -601,9 +617,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -626,9 +642,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -651,9 +667,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -680,9 +696,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -705,9 +721,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -730,9 +746,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -755,9 +771,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -784,9 +800,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -809,9 +825,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -834,9 +850,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -859,9 +875,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -888,9 +904,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -913,9 +929,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -938,9 +954,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -967,9 +983,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -992,9 +1008,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -1017,9 +1033,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -1042,9 +1058,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -1071,9 +1087,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -1096,9 +1112,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -1121,9 +1137,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -1150,9 +1166,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -1175,9 +1191,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="product-detail">
@@ -1238,7 +1254,7 @@
     </section>
 
     <section id="flash-sales" class="product-store padding-large">
-      
+
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Flash sales</h2>
@@ -1258,9 +1274,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="discount">10% Off</div>
@@ -1286,9 +1302,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="discount">10% Off</div>
@@ -1314,9 +1330,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="discount">10% Off</div>
@@ -1342,9 +1358,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="discount">10% Off</div>
@@ -1370,9 +1386,9 @@
                       <i class="icon icon-screen-full"></i>
                       <span class="tooltip-text">Quick view</span>
                     </button>
-                    <button type="button" class="wishlist-btn">
+                    {{-- <button type="button" class="wishlist-btn">
                       <i class="icon icon-heart"></i>
-                    </button>
+                    </button> --}}
                   </div>
                 </div>
                 <div class="discount">10% Off</div>
@@ -1405,12 +1421,12 @@
               <h3 class="item-title">The casual selection.</h3>
               <p>Vel non viverra ligula odio ornare turpis mauris. Odio aliquam, tincidunt ut vitae elit risus. Tempor egestas condimentum et ac rutrum dui, odio.</p>
               <div class="btn-wrap">
-                <a href="shop.html" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
+                <a href="" class="d-flex align-items-center">shop collection <i class="icon icon-arrow-io"></i>
                 </a>
               </div>
             </div>
           </div>
-        </div>        
+        </div>
       </div>
     </section>
 
@@ -1430,14 +1446,14 @@
         <div class="section-header d-flex flex-wrap align-items-center justify-content-between">
           <h2 class="section-title">our Journal</h2>
           <div class="btn-wrap align-right">
-            <a href="blog.html" class="d-flex align-items-center">Read All Articles <i class="icon icon icon-arrow-io"></i>
+            <a href="{{ route('shop') }}" class="d-flex align-items-center">Read All Articles <i class="icon icon icon-arrow-io"></i>
             </a>
           </div>
         </div>
         <div class="row d-flex flex-wrap">
           <article class="col-md-4 post-item">
             <div class="image-holder zoom-effect">
-              <a href="single-post.html">
+              <a href="{{ route('shop') }}">
                 <img src="images/post-img1.jpg" alt="post" class="post-image">
               </a>
             </div>
@@ -1448,15 +1464,15 @@
               </div>
               <div class="post-header">
                 <h3 class="post-title">
-                  <a href="single-post.html">top 10 casual look ideas to dress up your kids</a>
+                  <a href="{{ route('shop') }}">top 10 casual look ideas to dress up your kids</a>
                 </h3>
-                <a href="blog.html" class="blog-categories">Fashion</a>
+                <a href="{{ route('shop') }}" class="blog-categories">Fashion</a>
               </div>
             </div>
           </article>
           <article class="col-md-4 post-item">
             <div class="image-holder zoom-effect">
-              <a href="single-post.html">
+              <a href="{{ route('shop') }}">
                 <img src="images/post-img2.jpg" alt="post" class="post-image">
               </a>
             </div>
@@ -1467,9 +1483,9 @@
               </div>
               <div class="post-header">
                 <h3 class="post-title">
-                  <a href="single-post.html">Latest trends of wearing street wears supremely</a>
+                  <a href="{{ route('shop') }}">Latest trends of wearing street wears supremely</a>
                 </h3>
-                <a href="blog.html" class="blog-categories">Trending</a>
+                <a href="{{ route('shop') }}" class="blog-categories">Trending</a>
               </div>
             </div>
           </article>
@@ -1486,9 +1502,9 @@
               </div>
               <div class="post-header">
                 <h3 class="post-title">
-                  <a href="single-post.html">types of comfortable clothes ideas for women</a>
+                  <a href="{{ route('shop') }}">types of comfortable clothes ideas for women</a>
                 </h3>
-                <a href="blog.html" class="blog-categories">Inspiration</a>
+                <a href="{{ route('shop') }}" class="blog-categories">Inspiration</a>
               </div>
             </div>
           </article>
@@ -1552,7 +1568,7 @@
               <i class="icon icon-instagram"></i>
             </figure>
           </div>
-        </div>          
+        </div>
       </div>
     </section>
 
@@ -1595,5 +1611,7 @@
         </div>
       </div>
       <hr>
+
+
     </section>
 @endsection

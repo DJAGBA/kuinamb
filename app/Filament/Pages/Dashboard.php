@@ -11,6 +11,10 @@ class Dashboard extends BaseDashboard
     {
         return [
             StatistiquesDashboard::class,
+            GraphiqueCommandes::class,
+            CourbeVentes::class,
+            ProduitsPlusVendus::class,
         ];
+
     }
 }

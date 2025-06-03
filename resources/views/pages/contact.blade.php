@@ -187,7 +187,7 @@
             <h1 class="page-title">Contact us</h1>
             <div class="breadcrumbs">
               <span class="item">
-                <a href="index.html">Home /</a>
+                <a href="{{ route('home') }}">Home /</a>
               </span>
               <span class="item">Contact us</span>
             </div>
@@ -253,7 +253,7 @@
       </div>
     </section>
 
-    <section class="google-map">
+    {{-- <section class="google-map">
       <div class="mapouter">
         <div class="gmap_canvas">
           <iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
@@ -278,7 +278,7 @@
           </style>
         </div>
       </div>
-    </section>
+    </section> --}}
 
     <section id="brand-collection" class="padding-medium bg-light-grey">
       <div class="container">
@@ -297,7 +297,7 @@
         <div class="section-header">
           <h2 class="section-title">Follow our instagram</h2>
         </div>
-        <p>Our official Instagram account <a href="#">@ultras</a> or <a href="#">#ultras_clothing</a>
+        <p>Our official Instagram account <a href="#">@e-shop</a> or <a href="#"></a>
         </p>
         <div class="row d-flex flex-wrap justify-content-between">
           <div class="col-lg-2 col-md-4 col-sm-6">

@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row d-flex align-items-center">
           <div class="col-md-4 header-contact">
-            <p>Let's talk! <strong>+57 444 11 00 35</strong></p>
+            <p>Let's talk! <strong>+228 70 20 34 10</strong></p>
           </div>
           <div class="col-md-4 shipping-purchase text-center">
             <p>Free shipping on a purchase value of $200</p>
@@ -35,11 +35,11 @@
                   </a>
                 @endauth
               </li>
-              <li><a href=""><i class="icon icon-shopping-cart"></i></a></li>
-              <li><a href=""><i class="icon icon-heart"></i></a></li>
-              <li class="user-items search-item pe-3">
+              <li><a href="{{ route('index') }}"><i class="icon icon-shopping-cart"></i></a></li>
+              {{-- <li><a href=""><i class="icon icon-heart"></i></a></li> --}}
+              {{-- <li class="user-items search-item pe-3">
                 <a href="#" class="search-button"><i class="icon icon-search"></i></a>
-              </li>
+              </li> --}}
             </ul>
           </div>
         </div>
@@ -64,10 +64,10 @@
                 <ul class="menu-list">
                   <li><a href="{{ route('home') }}" class="item-anchor active">Home</a></li>
                   <li><a href="{{ route('about') }}" class="item-anchor">About</a></li>
-                  <li><a href="" class="item-anchor">Shop</a></li>
-                  <li><a href="" class="item-anchor">Blog</a></li>
-                  <li><a href="" class="item-anchor">Contact</a></li>
-                  <li><a href="{{ route('dashboard') }}" class="item-anchor">Dashboard</a></li>
+                  <li><a href="{{ route('shop') }}" class="item-anchor">Shop</a></li>
+                  <li><a href="{{ route('blog') }}" class="item-anchor">Blog</a></li>
+                  <li><a href="{{ route('contact') }}" class="item-anchor">Contact</a></li>
+                  {{-- <li><a href="{{ route('dashboard') }}" class="item-anchor">Dashboard</a></li> --}}
                 </ul>
               </div>
             </div>

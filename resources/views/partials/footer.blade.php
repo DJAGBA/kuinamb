@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <footer id="footer">
   <div class="container">
     <div class="footer-menu-list">
@@ -29,11 +29,11 @@
         <!-- Première colonne -->
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="footer-menu">
-            <h5 class="widget-title">Ultras</h5>
+            <h5 class="widget-title">e-shop</h5>
             <ul class="menu-list list-unstyled">
-              <li class="menu-item"><a href="{{ url('about') }}">À propos</a></li>
+              <li class="menu-item"><a href="{{ route('about') }}">À propos</a></li>
               <li class="menu-item"><a href="#">Conditions</a></li>
-              <li class="menu-item"><a href="{{ url('blog') }}">Nos Articles</a></li>
+              <li class="menu-item"><a href="{{ route('blog') }}">Nos Articles</a></li>
               <li class="menu-item"><a href="#">Carrières</a></li>
               <li class="menu-item"><a href="#">Programme d'affiliation</a></li>
               <li class="menu-item"><a href="#">Presse Ultras</a></li>
@@ -46,8 +46,8 @@
           <div class="footer-menu">
             <h5 class="widget-title">Service Client</h5>
             <ul class="menu-list list-unstyled">
-              <li class="menu-item"><a href="{{ url('faqs') }}">FAQ</a></li>
-              <li class="menu-item"><a href="{{ url('contact') }}">Contact</a></li>
+              <li class="menu-item"><a href="">FAQ</a></li>
+              <li class="menu-item"><a href="{{ route('contact') }}">Contact</a></li>
               <li class="menu-item"><a href="#">Politique de confidentialité</a></li>
               <li class="menu-item"><a href="#">Retours & Remboursements</a></li>
               <li class="menu-item"><a href="#">Cookies</a></li>
@@ -60,8 +60,8 @@
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="footer-menu">
             <h5 class="widget-title">Nous contacter</h5>
-            <p>Une question ou suggestion ? <a href="mailto:ourservices@ultras.com" class="email">ourservices@ultras.com</a></p>
-            <p>Besoin d’aide ? Appelez-nous : <br><strong>+57 444 11 00 35</strong></p>
+            <p>Une question ou suggestion ? <a href="mailto:ourservices@ultras.com" class="email">djagbaveronique@gmail.com</a></p>
+            <p>Besoin d’aide ? Appelez-nous : <br><strong>+228 70 20 34 10</strong></p>
           </div>
         </div>
 
@@ -87,7 +87,7 @@
   <hr>
 </footer>
 
-<!-- Footer bas -->
+{{-- <!-- Footer bas -->
 <div id="footer-bottom">
   <div class="container">
     <div class="d-flex align-items-center flex-wrap justify-content-between">
@@ -105,7 +105,7 @@
     </div>
   </div>
 </div>
-=======
+
   <footer id="footer">
       <div class="container">
         <div class="footer-menu-list">
@@ -224,4 +224,4 @@
         </div>
       </div>
     </div>
->>>>>>> dda8ac4ee198f86dc43f57f9fa57777b11523c12
+>>>>>>> dda8ac4ee198f86dc43f57f9fa57777b11523c12 --}}
